@@ -1,4 +1,5 @@
-# Main file
+# Main file where the magic happens
+# Date: 4-9-20
 
 import numpy as np
 import pygame
@@ -31,7 +32,8 @@ class Game:
                 if event.type == pygame.QUIT:
                     self.crash = True           # Crash will get us out of the game loop
 
-
+            move = np.random.choice(np.arange(0, 2, step=1), size=(1,4), replace=True)
+            print("Softmax Activation: {}".format(self.net_archs.forward_propagation(move)))
             # Draw everything on screen once per frame
             self.draw_window(frames)
 
