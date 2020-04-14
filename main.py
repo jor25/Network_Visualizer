@@ -32,7 +32,7 @@ class Game:
                 if event.type == pygame.QUIT:
                     self.crash = True           # Crash will get us out of the game loop
 
-            move = np.random.choice(np.arange(0, 2, step=1), size=(1,4), replace=True)
+            move = np.random.choice(np.arange(0, 2, step=1), size=(1, self.net_archs.input_layer), replace=True)
             print("Softmax Activation: {}".format(self.net_archs.forward_propagation(move)))
             # Draw everything on screen once per frame
             self.draw_window(frames)
@@ -49,7 +49,7 @@ class Game:
 
 if __name__ == '__main__':
     print("VISUALIZE NEURAL NETWORKS")
-
-    game = Game(800, 600, 1)
-    game.run()
+    pygame.init()               # Initialize the pygame instance
+    game = Game(800, 600, 1)    # Initialize Game object
+    game.run()                  # Run the game
 
